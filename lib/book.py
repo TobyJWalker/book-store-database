@@ -1,16 +1,11 @@
 class Book():
-    def __init__():
-        # initialise book object with values
-
-        #id
-        #title
-        #author
-        pass
+    def __init__(self, id, title, author):
+        self.id = id
+        self.title = title
+        self.author_name = author
     
-    def __repr__():
-        # return string representation of book object
-        pass
+    def __repr__(self):
+        return f"Book({self.id}, {self.title}, {self.author_name})"
     
-    def __eq__():
-        # return true if book objects are equal
-        pass
+    def __eq__(self, other):
+        return self.__dict__ == other.__dict__

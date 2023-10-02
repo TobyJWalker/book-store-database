@@ -1,12 +1,14 @@
 from lib.book import Book
 
 class BookRepository():
-    def __init__():
-        # initialise book repo object with connection
-
-        #_connection
-        pass
+    def __init__(self, connection):
+        self._connection = connection
     
-    def all():
-        # access and return all books as a list of book objects
-        pass
+    def all(self):
+        rows = self._connection.execute("SELECT * FROM books")
+        books = []
+        
+        for row in rows:
+            books.append(Book(row['id'], row['title'], row['author_name']))
+        
+        return books
